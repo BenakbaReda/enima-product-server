@@ -4,7 +4,12 @@ const router = jsonServer.router('db.json', {foreignKeySuffix: 'Id'});
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 3000;
 
+router.db._.id = 'Id';
+
 server.use(middlewares);
 server.use(router);
 
-server.listen(port);
+server.listen(port,() => {
+ 
+  console.log('JSON Server is running , and listen to port :' + port)
+})
