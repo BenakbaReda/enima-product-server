@@ -1,10 +1,10 @@
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('db.json', {foreignKeySuffix: 'Id'});
+const router = jsonServer.router('db.json', {foreignKeySuffix: 'uuid'});
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 3000;
 
-router.db._.id = 'Id';
+router.db._.id = 'uuid';
 
 server.use(middlewares);
 server.use(router);
